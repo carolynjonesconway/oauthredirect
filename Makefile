@@ -12,3 +12,7 @@ setup: compile install
 .PHONY: run
 run:
 	python3 server.py
+
+.PHONY: deploy
+deploy:
+	git push heroku master
