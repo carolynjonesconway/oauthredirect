@@ -1,44 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends 'base.html' %}
 
-<style type="text/css">
-body {
-    font-family: sans-serif;
-    font-weight: 400;
-}
-.alert {
-    list-style: none;
-    border-radius: 5px;
-    padding: 0.5em 1em;
-    margin: 0.5em;
-    max-width: 500px;
-}
-
-.alert-info {
-    color: rgba(25, 200, 0);
-}
-
-.alert-warning {
-    color: rgba(255, 150, 0);
-}
-
-.alert-error {
-    color: rgba(255, 25, 0);
-}
-</style>
-
-<title>Redirect</title>
-</head>
-<body>
-
-    {% with messages_and_categories = get_flashed_messages(with_categories=true) %}
-    <ul>
-        {% for category, message in messages_and_categories %}
-        <li class='alert alert-{{ category }}'>{{ message }}</li>
-        {% endfor%}
-    </ul>
-    {% endwith %}
-
-</body>
-</html>
+{% block content %}
+<h1>redirect.</h1>
+<h3>from anywhere, to anywhere.</h3>
+<p>http://oauthredirect.herokuapp.com/redirect?url=<b>[YOUR URL HERE]</b></p>
+{% endblock %}
