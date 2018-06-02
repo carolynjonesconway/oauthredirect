@@ -1,13 +1,13 @@
+import settings
+
 from flask import Flask, redirect, request, render_template
-from uuid import uuid1
 from validators import url as validate_url
 
 from helpers import flash, endpoints
 
 
 app = Flask(__name__)
-app.secret_key = str(uuid1())
-
+app.secret_key = settings.FLASK_SECRET_KEY
 
 
 @app.route(endpoints.HOME)
@@ -25,4 +25,4 @@ def do_redirect():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host=settings.HOST, port=settings.PORT, debug=settings.DEBUG)
